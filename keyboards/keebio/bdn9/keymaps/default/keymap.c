@@ -72,8 +72,11 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 
 #ifdef ENCODER_MAP_ENABLE
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS] = {
+    /* Layer 0: [Left Knob] [Middle Knob] [Right Knob] */
     [0] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_UP, KC_DOWN), ENCODER_CCW_CW(KC_PGUP, KC_PGDN) },
+    /* Layer 1: Pass-through bindings */
     [1] = { ENCODER_CCW_CW(KC_TRNS, KC_TRNS), ENCODER_CCW_CW(KC_TRNS, KC_TRNS), ENCODER_CCW_CW(KC_TRNS, KC_TRNS) }
 };
 #endif
+
 
