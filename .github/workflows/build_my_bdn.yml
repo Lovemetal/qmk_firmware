@@ -12,7 +12,7 @@ jobs:
         with:
           submodules: recursive
       - name: Build firmware
-        run: qmk compile -kb keebio/bdn9/rev2 -km default
+        run: qmk compile -kb keebio/bdn9/rev2 -km via
       - name: Upload firmware
         uses: actions/upload-artifact@v4
         with:
