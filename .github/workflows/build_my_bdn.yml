@@ -1,0 +1,20 @@
+name: Build My Keyboard
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: ghcr.io/qmk/qmk_cli
+    steps:
+      - name: Disable git safe directory checks
+        run: git config --global --add safe.directory '*'
+      - name: Checkout QMK
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Build firmware
+        run: qmk compile -kb keebio/bdn9/rev2 -km default
+      - name: Upload firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: bdn9-firmware
+          path: '*.bin'
